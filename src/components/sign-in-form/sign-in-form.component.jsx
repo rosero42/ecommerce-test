@@ -26,8 +26,13 @@ const SignInForm = () =>{
     }
 
     const signInWithGoogle = async () =>{
-        const {user} = await signInWithGooglePopup()
-        const userDocRef = await createUserDocumentFromAuth(user)
+        try {
+            const {user} = await signInWithGooglePopup()
+            const userDocRef = await createUserDocumentFromAuth(user)  
+        } catch (error) {
+            
+        }
+
     }
 
     const verifyUser = async (email, password) =>{
@@ -37,10 +42,14 @@ const SignInForm = () =>{
         try{
             const response = await signInAndCheckEmailAndPassword(email,password)
             console.log(response)
-        }catch(error){
-            console.log(error)
-            if(error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found'){
-                alert('Username or password is incorrect')
+        }catch(error){        
+            switch(error.code){
+                case 'auth/wrong-password':
+                    alert('Password is incorrect')
+                    break
+                case 'auth/user-not-found':
+                    alert('User not found')
+                    break
             }
         }
 
@@ -55,7 +64,7 @@ const SignInForm = () =>{
                 <FormInput label='Password' type='password'required name='password' onChange={handleChange} value={password} ></FormInput> 
                 <div className="buttons-container">
                     <Button type='submit'>Sign In</Button>
-                    <Button buttonType='google' onClick={signInWithGoogle}>Sign In with Google</Button>
+                    <Button type='button' buttonType='google' onClick={signInWithGoogle}>Google Sign In</Button>
                 </div>
 
             </form>
