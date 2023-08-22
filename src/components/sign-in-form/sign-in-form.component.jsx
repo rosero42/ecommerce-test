@@ -26,20 +26,13 @@ const SignInForm = () =>{
     }
 
     const signInWithGoogle = async () =>{
-        try {
-            const {user} = await signInWithGooglePopup()
-        } catch (error) {
-            
-        }
-
+        await signInWithGooglePopup()
     }
 
-    const verifyUser = async (email, password) =>{
-    }
     const handleSubmit = async (event) =>{
         event.preventDefault()
         try{
-            const {user} = await signInAndCheckEmailAndPassword(email,password)
+            await signInAndCheckEmailAndPassword(email,password)
         }catch(error){        
             switch(error.code){
                 case 'auth/wrong-password':
