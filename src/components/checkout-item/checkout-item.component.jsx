@@ -1,8 +1,8 @@
-import './product-checkout-item.styles.scss'
+import './checkout-item.styles.scss'
 import { CartContext } from '../../contexts/cart.context'
 import { useContext } from 'react'
 
-const ProductCheckoutItem = ({product}) =>{
+const CheckoutItem = ({product}) =>{
     //  product: id, name, imageUrl, price, quantity
 
     // Image, description, quantity, price, remove
@@ -32,10 +32,10 @@ const ProductCheckoutItem = ({product}) =>{
 
             </div>
             <span>{price}</span>
-            <br></br><span onClick={deleteFromCart}>REMOVE</span>
+            <br></br><span onClick={deleteFromCart}>X</span>
 
         </div>
     )
 }
 
-export default ProductCheckoutItem
+export default CheckoutItem
