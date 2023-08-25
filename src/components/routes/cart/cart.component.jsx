@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react'
 import ProductCheckoutItem from '../../product-checkout-item/product-checkout-item.component'
 
 const Cart = () =>{
-    const {cartItems} = useContext(CartContext)
+    const {cartItems, totalCost} = useContext(CartContext)
     return(
         <div className='product-checkout-container'>
             I am the cart page!
@@ -12,7 +12,7 @@ const Cart = () =>{
                 cartItems.map(item => 
                 <ProductCheckoutItem key={item.id} product={item}/>)   
             }
-
+            <p>Total ${totalCost}</p>
         </div>
     )
 }
