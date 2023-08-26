@@ -8,17 +8,10 @@ const CheckoutItem = ({product}) =>{
     // Image, description, quantity, price, remove
     const {name, imageUrl, quantity, price} = product
     const {addItemToCart, removeItemFromCart, deleteItemFromCart} = useContext(CartContext)
-    const lowerQuantity = () => {
-        removeItemFromCart(product)
-    }
-
-    const increaseQuantity = () =>{
-        addItemToCart(product)
-    }
-
-    const deleteFromCart = () =>{
-        deleteItemFromCart(product)
-    }
+    const lowerQuantity = () => removeItemFromCart(product)
+    const increaseQuantity = () => addItemToCart(product)
+    const deleteFromCart = () => deleteItemFromCart(product)
+    
     return(
         <div className='checkout-item-container'>
             <div className='image-container'>
