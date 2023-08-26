@@ -6,9 +6,7 @@ const CheckoutItem = ({product}) =>{
     //  product: id, name, imageUrl, price, quantity
 
     // Image, description, quantity, price, remove
-    console.log(product)
-    const {name, id, imageUrl, quantity, price} = product
-    console.log(name, imageUrl, quantity, price)
+    const {name, imageUrl, quantity, price} = product
     const {addItemToCart, removeItemFromCart, deleteItemFromCart} = useContext(CartContext)
     const lowerQuantity = () => {
         removeItemFromCart(product)
@@ -22,17 +20,19 @@ const CheckoutItem = ({product}) =>{
         deleteItemFromCart(product)
     }
     return(
-        <div>
-            <img src={imageUrl} alt={`${name}`}/>
-            <span>{name}</span>
-            <div>
-                <p onClick={lowerQuantity}>{`<`}</p>
-                <span>{quantity}</span>
-                <p onClick={increaseQuantity}>{`>`}</p>
-
+        <div className='checkout-item-container'>
+            <div className='image-container'>
+                <img src={imageUrl} alt={`${name}`}/>
             </div>
-            <span>{price}</span>
-            <br></br><span onClick={deleteFromCart}>X</span>
+            
+            <span className='name'>{name}</span>
+            <span className='quantity'>
+                <div className='arrow'onClick={lowerQuantity}>&#10094;</div>
+                {quantity} 
+                <div className='arrow'onClick={increaseQuantity}>&#10095;</div>
+            </span> 
+            <span className='price'>{price}</span>
+            <div className='remove-button' onClick={deleteFromCart}>&#10005;</div>
 
         </div>
     )
