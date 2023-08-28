@@ -1,6 +1,6 @@
 import FormInput from "../form-input/form-input.component"
 import {  useState } from "react"
-import Button from "../button.component/button.component"
+import Button from "../button/button.component"
 import './sign-in-form.styles.scss'
 import { 
     signInWithGooglePopup, 
