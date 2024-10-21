@@ -1,4 +1,5 @@
 import { createContext, useReducer } from "react";
+import {createAction} from '../util/reducer/reducer.util'
 
 //  cartItem: id, name, imageUrl, price, quantity
 
@@ -82,13 +83,15 @@ export const CartProvider = ({children}) =>{
 
         const newCartTotal = newCartItems.reduce((total, cartItem)=> total + (cartItem.price * cartItem.quantity),0)        
 
-        dispatch({type: CART_USER_ACTIONS.SET_CART_ITEMS, 
-            payload: {
-                cartItems: newCartItems, 
-                cartTotal: newCartTotal, 
-                cartCount: newCartCount
-            }
-        })
+        dispatch(
+            createAction(
+                CART_USER_ACTIONS.SET_CART_ITEMS,
+                {
+                    cartItems: newCartItems, 
+                    cartTotal: newCartTotal, 
+                    cartCount: newCartCount
+                })
+            )
     }
 
     const addItemToCart = (productToAdd) =>{
@@ -101,7 +104,7 @@ export const CartProvider = ({children}) =>{
         updateCartItemsReducer(deleteCartItem(cartItems, productToDelete))
     }
     const setIsCartOpen = (bool) =>{
-        dispatch({ type: CART_USER_ACTIONS.SET_IS_CART_OPEN, payload: bool})
+        dispatch(createAction(CART_USER_ACTIONS.SET_IS_CART_OPEN, bool))
     }
     // Access from other files
     const value = {
