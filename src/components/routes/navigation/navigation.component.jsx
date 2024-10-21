@@ -3,13 +3,13 @@ import { Outlet, Link } from "react-router-dom"
 import { ReactComponent as CrownLogo} from '../../../assets/crown.svg'
 import CartIcon from "../../cart-icon/cart-icon.component"
 import CartDropdown from "../../cart-dropdown/cart-dropdown.component"
-import { UserContext } from "../../../contexts/user.context"
 import { CartContext } from "../../../contexts/cart.context"
 import { signOutUser } from "../../../util/firebase/firebase.utils"
 import { LogoContainer, NavLink, NavLinkContainer, NavigationContainer } from "./navigation.styles.jsx"
+import { selectCurrentUser } from "../../../store/user/user.selector.js"
 
 const Navigation = () =>{
-    const { currentUser } = useContext(UserContext)
+    const currentUser = selectCurrentUser
     const { isCartOpen } = useContext(CartContext)
     const goToCheckout = () =>{
 
