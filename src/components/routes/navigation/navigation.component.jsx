@@ -1,4 +1,5 @@
 import { Fragment, useContext } from "react"
+import { useSelector } from "react-redux"
 import { Outlet, Link } from "react-router-dom"
 import { ReactComponent as CrownLogo} from '../../../assets/crown.svg'
 import CartIcon from "../../cart-icon/cart-icon.component"
@@ -9,7 +10,7 @@ import { LogoContainer, NavLink, NavLinkContainer, NavigationContainer } from ".
 import { selectCurrentUser } from "../../../store/user/user.selector.js"
 
 const Navigation = () =>{
-    const currentUser = selectCurrentUser
+    const currentUser = useSelector(selectCurrentUser)
     const { isCartOpen } = useContext(CartContext)
     const goToCheckout = () =>{
 

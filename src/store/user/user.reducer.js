@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     currentUser: null
 }
 
-export const userReducer = (state = INITIAL_STATE, action) =>{
+export const userReducer = (state = INITIAL_STATE, action = {}) =>{
     console.log(action)
     const {type, payload} = action
 

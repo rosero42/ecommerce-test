@@ -16,16 +16,18 @@ const App = () => {
     //useEffect will return when it unmounts
     const dispatch = useDispatch()
 
-    useEffect(()=>{
-      const unsubscribe = onAuthStateChangedListener((user)=>{
-          if(user){
-              createUserDocumentFromAuth(user)
-          }
-          const userDispatch = setCurrentUser(user)
-          dispatch(userDispatch)
-      })
-      return unsubscribe
-  },[dispatch])
+    useEffect(() => {
+      const unsubscribe = onAuthStateChangedListener((user) => {
+        if (user) {
+          createUserDocumentFromAuth(user);
+        }
+  
+        dispatch(setCurrentUser(user));
+      });
+  
+      return unsubscribe;
+    }, [dispatch]);
+
 
   return (
     <Routes>
