@@ -5,8 +5,8 @@ const Home = () => {
 
   return (
     <div>
+        <CategoryList />
         <Outlet/>
-        <CategoryList categoryList/>
     </div>
   );
 };
