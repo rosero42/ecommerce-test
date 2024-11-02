@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Arrow, CheckoutItemContainer, ImageContainer, Quantity, RemoveButton, BaseSpan, Value } from './checkout-item.styles'
+import { Arrow, CheckoutItemContainer, ImageContainer, 
+    Quantity, RemoveButton, BaseSpan, Value } from './checkout-item.styles'
 import { 
     addItemToCart,
     removeItemFromCart,

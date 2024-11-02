@@ -47,7 +47,6 @@ const firebaseConfig = {
   export const db = getFirestore()
 
   export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) =>{
-    console.log('create user doc from auth')
     if(!userAuth) return
     const userDocRef = doc(db, 'users', userAuth.uid)
 
@@ -99,7 +98,6 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) =>{
   });
 
   await batch.commit()
-  console.log("done")
 }
 
 export const getCategoriesAndDocuments = async () =>{

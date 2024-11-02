@@ -1,6 +1,6 @@
+import { useSelector } from 'react-redux'
 import './checkout.styles.scss'
 import CheckoutItem from '../../checkout-item/checkout-item.component'
-import { useSelector } from 'react-redux'
 import { selectCartItems, selectCartTotal } from '../../../store/cart/cart.selector'
 
 const Checkout = () =>{
