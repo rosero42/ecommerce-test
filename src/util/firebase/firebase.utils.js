@@ -47,7 +47,6 @@ const firebaseConfig = {
   export const db = getFirestore()
 
   export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) =>{
-    console.log('create user doc from auth')
     if(!userAuth) return
     const userDocRef = doc(db, 'users', userAuth.uid)
 
@@ -99,7 +98,6 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) =>{
   });
 
   await batch.commit()
-  console.log("done")
 }
 
 export const getCategoriesAndDocuments = async () =>{
@@ -107,12 +105,15 @@ export const getCategoriesAndDocuments = async () =>{
 
   const q = query(collectionRef)
   const querySnapshot = await getDocs(q)
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot)=>{
+  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data())
+  
+  
+/*   .reduce((acc, docSnapshot)=>{
     const {title, items} = docSnapshot.data()
     acc[title.toLowerCase()] = items
     return acc
   },{})
-  return categoryMap
+  return categoryMap */
 }
 
 /**
