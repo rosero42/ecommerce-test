@@ -1,37 +1,42 @@
 import { useSelector } from 'react-redux'
-import './checkout.styles.scss'
 import CheckoutItem from '../../checkout-item/checkout-item.component'
 import { selectCartItems, selectCartTotal } from '../../../store/cart/cart.selector'
+import { 
+    CheckoutContainer,
+    CheckoutHeader,
+    HeaderBlock,
+    Total
+ } from './checkout.styles'
 
 const Checkout = () =>{
     const cartItems = useSelector(selectCartItems)
     const cartTotal = useSelector(selectCartTotal)
     return(
-        <div className='checkout-container'>
-            <div className='checkout-header'>
-                <div className='header-block'>
+        <CheckoutContainer>
+            <CheckoutHeader>
+                <HeaderBlock>
                     <span>Product</span>
-                </div>
-                <div className='header-block'>
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Description</span>
-                </div>
-                <div className='header-block'>
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Quantity</span>
-                </div>
-                <div className='header-block'>
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Price</span>
-                </div>
-                <div className='header-block'>
+                </HeaderBlock>
+                <HeaderBlock>
                     <span>Remove</span>
-                </div>
+                </HeaderBlock>
 
-            </div>
+            </CheckoutHeader>
             { 
                 cartItems.map(item => 
                 <CheckoutItem key={item.id} product={item}/>)   
             }
-            <span className='total'>Total ${cartTotal}</span>
-        </div>
+            <Total>Total ${cartTotal}</Total>
+        </CheckoutContainer>
     )
 }
 
