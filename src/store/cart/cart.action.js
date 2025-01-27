@@ -46,5 +46,9 @@ export const deleteItemFromCart = (cartItems, productToDelete)=>{
     return createAction(CART_ACTION_TYPE.SET_CART_ITEMS, newCartItems)
 }
 
+export const clearItemsFromCart = () =>{
+    return createAction(CART_ACTION_TYPE.SET_CART_ITEMS, [])
+}
+
 export const setIsCartOpen = (bool) =>
     createAction(CART_ACTION_TYPE.SET_IS_CART_OPEN, bool)
