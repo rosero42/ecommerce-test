@@ -6,9 +6,9 @@ import { ReactComponent as CrownLogo} from '../../../assets/crown.svg'
 import CartIcon from "../../cart-icon/cart-icon.component"
 import CartDropdown from "../../cart-dropdown/cart-dropdown.component"
 import { LogoContainer, NavLink, NavLinkContainer, NavigationContainer } from "./navigation.styles.jsx"
-import { selectCurrentUser } from "../../../store/user/user.selector.js"
-import { selectIsCartOpen } from "../../../store/cart/cart.selector.js"
-import { signOutStart } from "../../../store/user/user.action.js"
+import { selectCurrentUser } from "../../../store/user/user.selector"
+import { selectIsCartOpen } from "../../../store/cart/cart.selector"
+import { signOutStart } from "../../../store/user/user.action"
 
 const Navigation = () =>{
     const dispatch = useDispatch()

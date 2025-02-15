@@ -2,9 +2,9 @@ import Button from '../button/button.component'
 import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import CartItem from '../cart-item/cart-item.component'
-import { CartDropdownContainer, CartItems, EmptyMessage} from './cart-dropdown.styles.jsx'
-import { selectCartItems } from '../../store/cart/cart.selector.js'
-import { setIsCartOpen } from '../../store/cart/cart.action.js'
+import { CartDropdownContainer, CartItems, EmptyMessage} from './cart-dropdown.styles'
+import { selectCartItems } from '../../store/cart/cart.selector'
+import { setIsCartOpen } from '../../store/cart/cart.action'
 
 const CartDropdown = () =>{
     const cartItems = useSelector(selectCartItems)
