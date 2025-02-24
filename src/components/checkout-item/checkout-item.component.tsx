@@ -7,8 +7,14 @@ import {
     deleteItemFromCart
 } from '../../store/cart/cart.action'
 import { selectCartItems } from '../../store/cart/cart.selector'
+import { CartItem } from '../../store/cart/cart.types'
+import { FC } from 'react'
 
-const CheckoutItem = ({product}) =>{
+export type CheckoutItemProps = {
+    product: CartItem
+} 
+
+const CheckoutItem: FC<CheckoutItemProps> = ({product}) =>{
     //  product: id, name, imageUrl, price, quantity
 
     // Image, description, quantity, price, remove
