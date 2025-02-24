@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom"
 import { ReactComponent as CrownLogo} from '../../../assets/crown.svg'
 import CartIcon from "../../cart-icon/cart-icon.component"
 import CartDropdown from "../../cart-dropdown/cart-dropdown.component"
-import { LogoContainer, NavLink, NavLinkContainer, NavigationContainer } from "./navigation.styles.jsx"
+import { LogoContainer, NavLink, NavLinkContainer, NavigationContainer } from "./navigation.styles"
 import { selectCurrentUser } from "../../../store/user/user.selector"
 import { selectIsCartOpen } from "../../../store/cart/cart.selector"
 import { signOutStart } from "../../../store/user/user.action"
@@ -30,7 +30,7 @@ const Navigation = () =>{
                 </NavLink>
                 {
                     currentUser ? (
-                        <NavLink as='span' onClick={signOutUser}>SIGN OUT</NavLink>
+                        <NavLink as='span' to='auth' onClick={signOutUser}>SIGN OUT</NavLink>
                     ) : (
                         <NavLink to='auth'>SIGN IN</NavLink>
                     )
